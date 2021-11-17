@@ -4,29 +4,35 @@ var timerCount;
 
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
-var resetButton = document.querySelector(".reset-button");
+// var resetButton = document.querySelector(".reset-button");
+var submitButton = document.querySelector(".submit-button");
 var quizStart = document.querySelector(".quiz-start");
 var quizQuestions = document.querySelector(".quiz-questions");
 var quizResults = document.querySelector(".quiz-results");
+var quizHiScores = document.querySelector(".quiz-hi-scores");
 
 
 // setting defaults for splash page
 quizStart.hidden = false;
 quizQuestions.hidden = true;
 quizResults.hidden = true;
+quizHiScores.hidden = true;
 
 //function to get the quiz going 
 
 function startQuiz() {
-  timerCount = 60;
+  timerCount = 10;
   //disallow clicking of button during quiz
   startButton.disabled = true;
   startButton.hidden = true;
   startTimer()
+  quizQuestions.hidden = false;
 }
 
 
-//function to pull each question
+//This is where I will set quizQuestions content to rotate through questions.
+
+  //function to pull each question
     //current question from questions
     //updated DOM elements to reflect the new question
     //clear old question choices
@@ -34,6 +40,8 @@ function startQuiz() {
     //create new button for each choice
     //event listener for each choice
     //display on the page
+
+//
 
 //function for the questionclick 
   //did the user guess right or wrong
@@ -49,7 +57,9 @@ function startQuiz() {
   //hides questions section
 
   function displayResults () {
-    quizSpace.textContent = "Quiz Results";
+    quizStart.hidden = true;
+    quizQuestions.hidden = true;
+    quizResults.hidden = false;
     startButton.disabled = false;
     startButton.hidden = false;
   }
@@ -84,6 +94,10 @@ function startQuiz() {
   //save to localstorage
   //redirect to next page
 
+function submitScore () {
+  //Need to get score and initials and set to local storage
+}
+
 
 //function to return to splash page
 function resetQuiz () {
@@ -92,11 +106,11 @@ function resetQuiz () {
 }
 
 
-// user clicks button to submit initials
-
-
 // click button to start quiz
 startButton.addEventListener("click", startQuiz);
 
+//click button to submit score
+submitButton.addEventListener("click",submitScore)
+
 // click button to return to splash page
-resetButton.addEventListener("click",resetQuiz);
+submitButton.addEventListener("click",resetQuiz);
