@@ -1,10 +1,30 @@
-// variables to keep track of quiz state
+// variables
+var timer;
+var timerCount;
+
+var timerElement = document.querySelector(".timer-count");
+var startButton = document.querySelector(".start-button");
+var resetButton = document.querySelector(".reset-button");
+var quizStart = document.querySelector(".quiz-start");
+var quizQuestions = document.querySelector(".quiz-questions");
+var quizResults = document.querySelector(".quiz-results");
 
 
-// variables to reference DOM elements
-
+// setting defaults for splash page
+quizStart.hidden = false;
+quizQuestions.hidden = true;
+quizResults.hidden = true;
 
 //function to get the quiz going 
+
+function startQuiz() {
+  timerCount = 60;
+  //disallow clicking of button during quiz
+  startButton.disabled = true;
+  startButton.hidden = true;
+  startTimer()
+}
+
 
 //function to pull each question
     //current question from questions
@@ -28,9 +48,33 @@
   //shows final score
   //hides questions section
 
+  function displayResults () {
+    quizSpace.textContent = "Quiz Results";
+    startButton.disabled = false;
+    startButton.hidden = false;
+  }
+
  //function for the clock 
   //updates time
   //checks if user ran out of time 
+
+  function startTimer() {
+    timer = setInterval(function() {
+      timerCount--;
+      timerElement.textContent = timerCount;
+      if(timerCount === 0) {
+        clearInterval(timer);
+        displayResults();
+      }
+    },1000);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timerElement.textContent=60;
+    startButton.disabled = false;
+    startButton.hidden = false;
+    }
 
 //function to save the high score
   //get value of input box
@@ -41,9 +85,18 @@
   //redirect to next page
 
 
+//function to return to splash page
+function resetQuiz () {
+  clearInterval(timer);
+  resetTimer();
+}
 
 
 // user clicks button to submit initials
 
 
-// user clicks button to start quiz
+// click button to start quiz
+startButton.addEventListener("click", startQuiz);
+
+// click button to return to splash page
+resetButton.addEventListener("click",resetQuiz);

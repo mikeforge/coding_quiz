@@ -13,8 +13,7 @@
   }
 
   header {
-    padding: 40px;
-    text-align: center;
+    padding: 5px;
     background: #ffffff;
     color: rgb(0, 0, 0);
     border-bottom:30px #879274;
@@ -25,3 +24,42 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
+
+  button {
+    background: radial-gradient(circle, rgb(255,255,255) 0%, rgb(101,21,126,1) 100%);
+    border-radius: 8px;
+    color: #13293d;
+    cursor: pointer;
+    font-size: 10pt;
+    letter-spacing: 0.21px;
+    line-height: 16px;
+    max-width: 255px;
+    padding: 5px 45px;
+    text-align: center;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-top: 0.6em;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  .header-left {
+    float: left;
+  }
+
+  .header-right {
+    float: right;
+  }
+
+  .quiz-start {
+    float: right;
+  }
+
+  
