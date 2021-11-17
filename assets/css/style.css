@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background: linear-gradient(0deg, rgb(101, 21, 126) 0%, rgb(255, 255, 255) 63%);
+  }
+
+  header {
+    padding: 40px;
+    text-align: center;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    border-bottom:30px #879274;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
